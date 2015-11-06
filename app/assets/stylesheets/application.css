@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/* override for the background hover issue on navbar-brand */
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  background-color: #ffd714;
+}

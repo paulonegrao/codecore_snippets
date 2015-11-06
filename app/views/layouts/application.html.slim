@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Code Snippets
+    / highlight.js
+    = stylesheet_link_tag    '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js'
+
+    / asset pipeline
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    / CSRF
+    = csrf_meta_tags
+
+  body
+    div class="container"
+      = render "layouts/navbar"
+
+      = render "layouts/flash"
+      == yield
