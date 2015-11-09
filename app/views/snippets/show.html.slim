@@ -1,0 +1,11 @@
+h1 = @snippet.title
+div class="panel panel-success"
+  div class="panel-heading" = @snippet.category.name
+
+  div class="panel-body"
+    pre
+      code class="#{@snippet.category.name.downcase}"
+        = @snippet.code
+
+div
+  = link_to "back", categories_path, class: "btn btn-danger"

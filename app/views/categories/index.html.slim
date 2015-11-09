@@ -1,0 +1,16 @@
+h1 Snippets
+
+/div class="category-panel"
+/  h2 Ruby <span class="badge"> 5 <span class="glyphicon glyphicon-scissors"></span></span>
+
+- @categories.each do |category|
+  div class="category-panel"
+    = link_to "#{category.name} <span class='badge'> #{category.snippets.count} <span class='glyphicon glyphicon-scissors'></span></span>".html_safe,
+    "#snippets-for-#{category.name.downcase}",
+    class: "snippet-link",
+    data: { toggle: "collapse" }
+
+  div class="snippet-group collapse" id="snippets-for-#{category.name.downcase}"
+    - category.snippets.each do |snippet|
+      div class="snippet-panel"
+        = link_to "<span class='glyphicon glyphicon-scissors'></span> #{snippet.title}".html_safe, snippet_path(snippet)
