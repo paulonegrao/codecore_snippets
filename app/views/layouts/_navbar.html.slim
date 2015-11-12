@@ -15,7 +15,9 @@ nav class="navbar navbar-default navbar-fixed-top"
     div class="col-xs-2 col-sm-6"
       div class="pull-right"
         ul class="nav navbar-nav"
-          li = link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, new_snippet_path, title: "New Snippet"
+         li = link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, "new_snippet_path", title: "New Snippet"
+/ Alex: I'm changing here because we need to pass the catagory_id to create a new snippet (one-to-many)
+/          li = link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, new_category_snippet_path(@categories), title: "New Snippet"
 
 / Since we're using fixed-top navbar, we need to push the content down a bit
 / in order to properly clear everything

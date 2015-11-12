@@ -1,0 +1,30 @@
+<h2>Categories</h2>
+
+  <% @categories.each do |category| %>
+    <div class="pull-right">
+        <ul class="nav navbar-nav">
+          <li><%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe,
+           edit_category_path(category), title: 'Edit Category' %></li>
+        </ul>
+        <div class="pull-right">
+            <ul class="nav navbar-nav">
+              <li><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe,
+                      category_path(category), method: :delete, data: {confirm: "Are you sure?"},
+                      title: 'Delete Category' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class="category-panel">
+      <%=  link_to "#{category.name} <span class='badge'> #{category.snippets.count} <span class='glyphicon glyphicon-scissors'></span></span>".html_safe,
+      "#snippets-for-#{category.name.downcase}",
+      class: "snippet-link",
+        data: { toggle: "collapse" } %>
+    </div>
+    <div class="snippet-group collapse" id='snippets-for-<%= "#{category.name.downcase}" %>'>
+      <% category.snippets.each do |snippet| %>
+        <div class="snippet-panel">
+          <%= link_to "<span class='glyphicon glyphicon-scissors'></span> #{snippet.title}".html_safe, category_snippet_path(category, snippet) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>

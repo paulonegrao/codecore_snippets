@@ -1,0 +1,27 @@
+<h2><%= @snippet.category.name %></h2>
+<div>
+<div class="panel panel-success">
+    <div class="pull-right">
+        <ul class="nav navbar-nav">
+          <li><%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_snippet_path(@snippet), title: 'Edit Snippet' %></li>
+        </ul>
+        <div class="pull-right">
+            <ul class="nav navbar-nav">
+              <li><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, snippet_path(@snippet), method: :delete, data: {confirmation: "Are you sure?"}, title: 'Delete Snippet' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel-heading' style="padding: 15px 15px 15px"><%= @snippet.title %>
+    </div>
+  <div class="panel-body">
+    <pre>
+      <code class='<%= "#{@snippet.category.name.downcase}" %>'>
+        <%= @snippet.code %>
+      </code>
+    </pre>
+  </div>
+
+</div>
+<div>
+  <%= link_to "back", categories_path, class: "btn btn-danger" %>
+</div>

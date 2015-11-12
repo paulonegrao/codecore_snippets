@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="col-xs-10 col-sm-6">
+      <div class="branding-icon" id="code-snippets-logo-collapse">
+        <a class="navbar-brand"><span class="glyphicon glyphicon-scissors"></span></a>
+      </div>
+      <div class="navbar-header hidden-xs" id="code-snippets-logo-full">
+          <%= link_to "Code Snippets", categories_path, class: "navbar-brand" %>
+      </div>
+      <div class="links_container">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "New Category", new_category_path %></li>
+        </ul>
+      </div>
+      <div class="links_container">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "New Snippet", new_snippet_path %></li>
+        </ul>
+      </div>
+  </div>
+</div>
+</nav>
+
+<%# Since we're using fixed-top navbar, we need to push the content down a bit
+ in order to properly clear everything %>
+<div class="navbar-padding">
+</div>

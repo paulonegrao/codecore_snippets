@@ -13,4 +13,4 @@ h1 Snippets
   div class="snippet-group collapse" id="snippets-for-#{category.name.downcase}"
     - category.snippets.each do |snippet|
       div class="snippet-panel"
-        = link_to "<span class='glyphicon glyphicon-scissors'></span> #{snippet.title}".html_safe, snippet_path(snippet)
+        = link_to "<span class='glyphicon glyphicon-scissors'></span> #{snippet.title}".html_safe, "snippet_path(snippet)"
