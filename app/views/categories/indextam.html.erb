@@ -14,16 +14,13 @@
             </ul>
         </div>
     </div>
-    <%# url_cat = Digest::SHA256.hexdigest(category.name.downcase)%>
-    <%# url_cat = CGI::escape(category.name.downcase)%>
-    <% url_cat = (category.id)%>
     <div class="category-panel">
       <%=  link_to "#{category.name} <span class='badge'> #{category.snippets.count} <span class='glyphicon glyphicon-scissors'></span></span>".html_safe,
-      "#snippets-for-#{url_cat}",
+      "#" + "snippets-for-#{category.name.downcase}".gsub(/[^0-9A-Za-z]/, ''),
       class: "snippet-link",
         data: { toggle: "collapse" } %>
     </div>
-    <div class="snippet-group collapse" id='snippets-for-<%= "#{url_cat}" %>'>
+    <div class="snippet-group collapse" id='<%= "snippets-for-#{category.name.downcase}".gsub(/[^0-9A-Za-z]/, '') %>'>
       <% category.snippets.each do |snippet| %>
         <div class="snippet-panel">
           <%= link_to "<span class='glyphicon glyphicon-scissors'></span> #{snippet.title}".html_safe, category_snippet_path(category, snippet) %>

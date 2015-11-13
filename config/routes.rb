@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "categories#index"
   resources :categories do
     resources :snippets, except: [:new, :create, :edit, :update, :destroy]
   end
